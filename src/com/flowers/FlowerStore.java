@@ -1,11 +1,16 @@
 package com.flowers;
 
 public class FlowerStore {
-    static int wallet() {
-        int cash = Rose.getPrice() * Rose.getNumOfInstances()
+    private static int cash;
+
+    public int getCash() {
+        return cash;
+    }
+
+    static void wallet() {
+        cash = Rose.getPrice() * Rose.getNumOfInstances()
                 + Chamomile.getPrice() * Chamomile.getNumOfInstances()
                 + Tulip.getPrice() * Tulip.getNumOfInstances();
-        return cash;
     }
 
     static Flower[] sell(int rose, int chamomile, int tulip) {
@@ -18,8 +23,14 @@ public class FlowerStore {
             } else {
                 flowers[i] = new Tulip();
             }
-            //System.out.print(FlowerStore.wallet() + ", ");
+//            // test
+//            FlowerStore.wallet();
+//            System.out.print(flowers[i].toString() + cash + ", ");
+//            if(i == rose + chamomile + tulip -1 ){
+//                System.out.println();
+//            }
         }
+        FlowerStore.wallet();
         return flowers;
     }
 
@@ -71,6 +82,7 @@ public class FlowerStore {
                 }
             }
         }
+        FlowerStore.wallet();
         return flowers;
     }
 
