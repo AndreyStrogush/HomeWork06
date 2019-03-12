@@ -1,6 +1,12 @@
 package com.flowers;
 
 public class FlowerStore {
+    static int wallet() {
+        int cash = Rose.getPrice() * Rose.getNumOfInstances()
+                + Chamomile.getPrice() * Chamomile.getNumOfInstances()
+                + Tulip.getPrice() * Tulip.getNumOfInstances();
+        return cash;
+    }
 
     static Flower[] sell(int rose, int chamomile, int tulip) {
         Flower[] flowers = new Flower[rose + chamomile + tulip];
@@ -12,6 +18,7 @@ public class FlowerStore {
             } else {
                 flowers[i] = new Tulip();
             }
+            //System.out.print(FlowerStore.wallet() + ", ");
         }
         return flowers;
     }
@@ -24,7 +31,7 @@ public class FlowerStore {
         Flower[] flowers = new Flower[rose + chamomile + tulip];
         for (int i = 0; i < rose + chamomile + tulip; i++) {
             //if i< minimal number of flowers  - add all 3 of them in a row and increment i 2 times
-            if (i < min*3) {
+            if (i < min * 3) {
                 flowers[i] = new Rose();
                 flowers[i + 1] = new Chamomile();
                 flowers[i + 2] = new Tulip();
@@ -32,7 +39,7 @@ public class FlowerStore {
             }
             //if i> min and less then mid  - we have 3 option how to add 2 flowers in to bucket
             //depending of which of them is minimum represented
-            if (i >= min*3 && i < (min*3 + (mid - min)*2)) {
+            if (i >= min * 3 && i < (min * 3 + (mid - min) * 2)) {
                 //then i < min  - every bucket add 3 flowers
                 //bitween  min and mid values every bucket consist of 2 flowers
                 if (min == rose) {
@@ -52,7 +59,7 @@ public class FlowerStore {
                 }
             }
             //if i > mid  - we have only 1 flower left to add, depending which of them is max represented
-            if (i >= (min*3 + (mid - min)*2)) {
+            if (i >= (min * 3 + (mid - min) * 2)) {
                 if (max == rose) {
                     flowers[i] = new Rose();
                 }
