@@ -1,14 +1,21 @@
-package com.flowers;
+package com.flowers.kiev.service;
 
+import com.flowers.kiev.entity.Flower;
+
+import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public final class FlowerSaver {
 
     public static void save(String pathFile, Flower[] flowers) {
-        try {
-            FileWriter writer = new FileWriter(pathFile);
-            int rose = 0, chamomile = 0, tulip = 0;
+        FileWriter writer;
+        int rose = 0;
+        int chamomile = 0;
+        int tulip = 0;
 
+        try {
+            writer = new FileWriter(pathFile);
             for (int i = 0; i < flowers.length; ++i) {
                 switch (flowers[i].toString()) {
                     case "Rose, ":
@@ -23,15 +30,15 @@ public final class FlowerSaver {
                 }
             }
             writer.write(rose + "\n");
-            System.out.println(rose);
+            System.out.println(rose + " Roses added");
             writer.write(chamomile + "\n");
-            System.out.println(chamomile);
+            System.out.println(chamomile + "Chamomiles added");
             writer.write(tulip + "\n");
             writer.write(System.lineSeparator());
-            System.out.println(tulip);
+            System.out.println(tulip + "Tulips added");
             System.out.println("The file: " + pathFile + " has been written");
             writer.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
