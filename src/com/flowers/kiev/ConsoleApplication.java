@@ -7,7 +7,7 @@ import com.flowers.kiev.service.FlowersLoader;
 
 import java.util.stream.Stream;
 
-public class Main {
+public class ConsoleApplication {
     private static final String FILE_NAME = "file/testFlower.txt";
     private static final String WRITE_TEST = "src/resources/file/testWriteFlower.txt";
     private static final String SECOND_WRITE_TEST = "src/resources/file/secondWriteTest.txt";
