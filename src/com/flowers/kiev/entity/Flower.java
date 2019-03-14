@@ -1,6 +1,6 @@
 package com.flowers.kiev.entity;
 
-public class Flower {
+public abstract class Flower {
     private int price;
 
     public Flower(int price) {
@@ -12,7 +12,5 @@ public class Flower {
     }
 
     @Override
-    public String toString() {
-        return "Flower{}";
-    }
+    public abstract String toString();
 }
